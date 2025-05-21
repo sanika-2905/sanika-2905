@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanika Mhaske | Portfolio</title>
+ <link rel="icon" type="image/png" href="images/favicon.PNG">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+<style>
+  /* Loader styles */
+  #loader {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #loader .spinner {
+    border: 6px solid #ccc;
+    border-top: 6px solid #0055aa;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Scroll to top button */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  }
+
+  #scrollTopBtn:hover {
+    background-color: #003366;
+  }
+</style>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+  // Loader: hide after page fully loads
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+
+  // Scroll to top button show/hide
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  // Scroll to top
+  scrollBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #ffffff;
+      color: #003366;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background: #001f33;
+      color: #f0f8ff;
+    }
+    header {
+      background: #0055aa;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: #ffee00;
+    }
+    .toggle-mode {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    section {
+      padding: 5rem 1rem 3rem;
+      margin-top: 3.5rem;
+    }
+    .welcome img {
+      border-radius: 50%;
+      width: 200px;
+      border: 5px solid #0055aa;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .welcome img:hover {
+      transform: scale(1.05);
+    }
+    .about, .achievements, .goals, .personal, .contact, .public-apis {
+      max-width: 900px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: #f0f8ff;
+    }
+    body.dark-mode .about,
+    body.dark-mode .achievements,
+    body.dark-mode .goals,
+    body.dark-mode .personal,
+    body.dark-mode .contact,
+    body.dark-mode .public-apis {
+      background: #003355;
+    }
+    section h3 {
+      color: #003366;
+    }
+    body.dark-mode section h3 {
+      color: #ffee00;
+    }
+    .skills span {
+      background-color: #0055aa;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin: 0.3rem;
+      display: inline-block;
+    }
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .personal-item {
+      background: white;
+      padding: 1rem;
+      border-left: 5px solid #0055aa;
+      border-radius: 8px;
+    }
+    body.dark-mode .personal-item {
+      background: #002244;
+    }
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .contact button {
+      background: #0055aa;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact button:hover {
+      background: #003366;
+    }
+    footer {
+      background: #0055aa;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sanika Mhaske</h1>
+    <nav>
+      <a href="#welcome">Welcome</a>
+      <a href="#about">About</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#goals">Goals</a>
+      <a href="#personal">Personal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="toggle-mode" onclick="toggleMode()">🌓</button>
+  </header>
+  
+<section class="welcome" id="welcome">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem;">
+    <div>
+      <img src="images/sanika.jpeg" alt="Sanika Photo" style="width: 240px; height: 240px; border-radius: 20px; border: 5px solid #0055aa; object-fit: cover;" />
+    </div>
+    <div style="max-width: 700px;">
+      <h2 style="margin-bottom: 0.5rem;">Hello, I'm <span style="color: #0055aa;">Sanika Mhaske</span> from Boisar 👋</h2>
+      <p style="font-size: 2rem; color: #333;">Welcome to my creative corner of the web!</p>
+    </div>
+  </div>
+  <video width="100%" height="auto" controls style="margin-top: 2rem; border-radius: 10px;">
+    <source src="./images/video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+  <section class="about" id="about">
+    <h3>About Me</h3>
+    <p><strong>Name:</strong> Sanika Mhaske</p>
+    <p><strong>Location:</strong> Boisar</p>
+    <p><strong>Education:</strong> B.E. in Computer Engineering</p>
+    <p><strong>Languages Known:</strong> English, Marathi, Hindi</p>
+  </section>
+
+  <section class="achievements" id="achievements">
+    <h3>Achievements</h3>
+    <ul>
+      <li>Completed certification in .NET and SQL</li>
+      <li>Developed restaurant management app using Python & Tkinter</li>
+    </ul>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>.NET</span>
+      <span>SQL</span>
+      <span>DBMS</span>
+    </div>
+  </section>
+
+  <section class="goals" id="goals">
+    <h3>Future Goals</h3>
+    <p>I aim to become a front-end developer who builds user-friendly and accessible web apps that solve real-world problems. I also wish to mentor aspiring students in tech one day.</p>
+  </section>
+
+  <section class="personal" id="personal">
+    <h3>Personal Side</h3>
+    <div class="personal-grid">
+      <div class="personal-item"><strong>Hobbies:</strong> Drawing, Reading Biographies, UI Designing</div>
+      <div class="personal-item"><strong>Role Models:</strong> Chhatrapati Shivaji Maharaj – for his leadership and vision</div>
+      <div class="personal-item"><strong>Favorite Book:</strong> "Wings of Fire" by Dr. A.P.J. Abdul Kalam</div>
+      <div class="personal-item"><strong>Favorite Website:</strong> dev.to – for its helpful tech blogs</div>
+      <div class="personal-item"><strong>Favorite Startup:</strong> Zerodha – for its simplicity and impact</div>
+      <div class="personal-item"><strong>Volunteering:</strong> Helped organize coding workshops for juniors</div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>Contact Me</h3>
+    <p><i class="fa-solid fa-phone"></i><strong> : </strong> +91-7448191614</p>
+    <p><i class="fa-brands fa-whatsapp"></i><strong> : </strong> <a href="https://wa.me/917448191614" target="_blank">Chat on WhatsApp</a></p>
+    
+      
+    <p><i class="fa-brands fa-instagram"> </i></a><strong> : </strong>  <a href="https://instagram.com/sanikamhaske" target="_blank">@_sanika.mhaske_ </a>  </p>
+    <p><i class="fa-brands fa-linkedin"></i><strong> : </strong> <a href="https://linkedin.com/in/sanikamhaske" target="_blank">Sanika Mhaske</a></p>
+    <p><i class="fa-brands fa-twitter"></i><strong> : </strong> <a href="https://twitter.com/sanikamhaske" target="_blank">@sanikamhaske</a></p>
+    <p><i class="fa-brands fa-github"></i><strong> : </strong> <a href="https://github.com/sanikamhaske" target="_blank">sanikamhaske</a></p>
+    <p><i class="fa-solid fa-paper-plane"></i><strong> : </strong> <a href="mailto:123sanika2097@sjcem.edu.in">123sanika2097@sjcem.edu.in</a></p>
+
+    <iframe src="https://maps.google.com/maps?q=boisar&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; margin-top:1rem; border-radius:10px;" allowfullscreen loading="lazy"></iframe>
+    
+    <form id="contactForm">
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Write your message..." rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="thankYouMsg" style="display:none; margin-top:1rem; color:green;">Thank you for reaching out! I'll get back to you soon. 😊</p>
+ 
+  </section>
+
+
+
+<section class="public-apis" id="public-apis" style="padding:2rem; max-width:900px; margin:1rem auto; background:#f0f8ff; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  <h3>Public APIs</h3>
+  
+  <div id="quote" style="margin-bottom:1.5rem;">
+    <h4>Quote of the Day</h4>
+    <p id="quote-text">Either you run the day or the day runs you.</p>
+    <p id="quote-author" style="font-style: italic; color: #555;"></p>
+  </div>
+
+  <div id="joke" style="margin-bottom:1.5rem;">
+    <h4>Random Joke</h4>
+    <p id="joke-setup">How do you comfort Javascript bug ? You console it.</p>
+    <p id="joke-punchline" style="font-weight:bold;"></p>
+  </div>
+
+  <div id="weather">
+    <h4>Weather in Boisar</h4>
+    <p id="weather-info">Loading weather...</p>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Sanika Mhaske | Portfolio</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+  
+
+  // Quote of the Day API - using quotable.io
+ fetch('https://quotes.rest/')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('quote-text').textContent = `"${data[0].q}"`;
+    document.getElementById('quote-author').textContent = `- ${data[0].a}`;
+  })
+  .catch(() => {
+    document.getElementById('quote-text').textContent = ' Either you run the day or the day runs you. ';
+  });
+
+
+  // Joke API - using Official Joke API
+  fetch('https://official-joke-api.appspot.com/random_joke')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('joke-setup').textContent = data.setup;
+      document.getElementById('joke-punchline').textContent = data.punchline;
+    })
+    .catch(() => {
+      document.getElementById('joke-setup').textContent = 'Could not load joke.';
+    });
+
+  // Weather API - using Open-Meteo (no API key required)
+  // Boisar coordinates approx: 19.8° N, 72.75° E
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=19.8&longitude=72.75&current_weather=true')
+    .then(res => res.json())
+    .then(data => {
+      if(data.current_weather) {
+        const temp = data.current_weather.temperature;
+        const windSpeed = data.current_weather.windspeed;
+        const weatherText = `Temperature: ${temp}°C, Wind Speed: ${windSpeed} km/h`;
+        document.getElementById('weather-info').textContent = weatherText;
+      } else {
+        document.getElementById('weather-info').textContent = 'Weather data not available.';
+      }
+    })
+    .catch(() => {
+      document.getElementById('weather-info').textContent = 'Could not load weather.';
+    });
+</script>
+
+<script>
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('thankYouMsg').style.display = 'block';
+      this.reset();
+    });
+
+    
+    // Scroll active nav link
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 80;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.hash);
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
+
+</body>
+</html>
